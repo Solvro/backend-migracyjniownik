@@ -6,20 +6,20 @@ Zrobiony za pomocą pnpm'a, jak nie masz to L (chociaż powinno nadal działać)
 
 Gotowe do migracji:
 - [x] Admins
-- [] AdminPermissions
-- [] Attributes
-- [] AuthAccessTokens
-- [] Blocks
-- [] Emails
+- [ ] AdminPermissions
+- [ ] Attributes
+- [ ] AuthAccessTokens
+- [ ] Blocks
+- [ ] Emails
 - [x] Events
 - [x] Forms
-- [] FormsDefinitions
-- [] Participants
-- [] ParticipantsAttributes
-- [] ParticipantsAttributesLogs
-- [] ParticipantsEmails
-- [] ParticipantsForms
-- [] Permissions
+- [ ] FormsDefinitions
+- [ ] Participants
+- [ ] ParticipantsAttributes
+- [ ] ParticipantsAttributesLogs
+- [ ] ParticipantsEmails
+- [ ] ParticipantsForms
+- [ ] Permissions
 
 Reszta powinna być prosta tylko trzeba iść *według ciągu dependency*:
 
