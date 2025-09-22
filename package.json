@@ -1,0 +1,25 @@
+{
+	"name": "migrator",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/main.ts",
+	"scripts": {
+		"start": "NODE_OPTIONS=\"--import=./src/register.js\" node ./src/main.ts",
+		"dev": "nodemon --watch \"src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"pnpm start\"",
+		"build": "tsc"
+	},
+	"keywords": [],
+	"type": "module",
+	"author": "pb3d",
+	"license": "ISC",
+	"packageManager": "pnpm@10.17.0",
+	"dependencies": {
+		"@types/node": "^24.5.2",
+		"dotenv": "^17.2.2",
+		"postgres": "^3.4.7",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.2",
+		"uuid": "^13.0.0",
+		"zod": "^4.1.11"
+	}
+}
