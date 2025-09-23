@@ -65,4 +65,4 @@ ALTER TABLE "public"."ParticipantsForms" ADD CONSTRAINT "ParticipantsForms_email
 ALTER TABLE "public"."ParticipantsAttributesLogs" ADD CONSTRAINT "ParticipantsAttributesLogs_participantUuid_fkey" FOREIGN KEY ("participantUuid") REFERENCES "public"."Participants"("uuid") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "public"."AuthAccessTokens" ADD CONSTRAINT "AuthAccessTokens_tokenable_id_fkey" FOREIGN KEY ("tokenable_id") REFERENCES "public"."Admins"("uuid") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "public"."AuthAccessTokens" ADD CONSTRAINT "AuthAccessTokens_tokenableId_fkey" FOREIGN KEY ("tokenableId") REFERENCES "public"."Admins"("uuid") ON DELETE RESTRICT ON UPDATE CASCADE;
