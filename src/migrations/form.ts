@@ -28,7 +28,7 @@ export const migrateForms = async (
 	});
 
 	for (const formMigration of formsMigration) {
-		await sql_v3`INSERT INTO "forms" (uuid, name, "isEditable", "createdAt", "updatedAt", "openDate", "closeDate", description, "eventUuid") VALUES (${formMigration.new.uuid}, ${formMigration.new.name}, ${formMigration.new.isEditable}, ${formMigration.new.createdAt}, ${formMigration.new.updatedAt}, ${formMigration.new.openDate}, ${formMigration.new.closeDate}, ${formMigration.new.description}, ${formMigration.new.eventUuid});`;
+		await sql_v3`INSERT INTO "Forms" (uuid, name, "isEditable", "createdAt", "updatedAt", "openDate", "closeDate", description, "eventUuid") VALUES (${formMigration.new.uuid}, ${formMigration.new.name}, ${formMigration.new.isEditable}, ${formMigration.new.createdAt}, ${formMigration.new.updatedAt}, ${formMigration.new.openDate}, ${formMigration.new.closeDate}, ${formMigration.new.description}, ${formMigration.new.eventUuid});`;
 	}
 
 	return formsMigration;

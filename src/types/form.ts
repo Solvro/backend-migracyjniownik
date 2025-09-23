@@ -9,7 +9,7 @@ export const FormV2 = z.object({
 	is_first_form: z.boolean(),
 	description: z.string().nullable(),
 	end_date: z.date().nullable(),
-	event_id: z.number().nullable(),
+	event_id: z.number(),
 	created_at: z.date(),
 	updated_at: z.date().nullable(),
 });

@@ -7,8 +7,7 @@ import { FormMigration } from "../types/form.js";
 
 export const migrateEvents = async (
 	fromDB: postgres.RowList<postgres.Row[]>,
-	adminsMigration: AdminMigration[],
-	formsMigration: FormMigration[]
+	adminsMigration: AdminMigration[]
 ) => {
 	const events = EventV2Array.parse(fromDB);
 
@@ -43,6 +42,18 @@ export const migrateEvents = async (
 	});
 
 	for (const eventMigration of eventsMigration) {
+		// console.log("eventMigration.old.id");
+		// console.log(eventMigration.old.id);
+
+		// console.log(formsMigration.map((form) => form.old.event_id).join(","));
+
+		// const cos = formsMigration.find(
+		// 	(form) => form.old.event_id === eventMigration.old.id
+		// )?.new.uuid;
+
+		// console.log("cos");
+		// console.log(cos);
+
 		await sql_v3`INSERT INTO "Events" (uuid, name, links, "policyLinks", "startDate", "endDate", "createdAt", "updatedAt", "participantsLimit", "verifiedAt", "description", "primaryColor", "organizerName", "photoUrl", "location", "contactEmail", "slug", "isPrivate", "organizerUuid", "registerFormUuid") VALUES (${
 			eventMigration.new.uuid
 		}, ${eventMigration.new.name}, ${eventMigration.new.links}, ${
@@ -61,11 +72,7 @@ export const migrateEvents = async (
 			adminsMigration.find(
 				(admin) => admin.old.id === eventMigration.old.organizer_id
 			)?.new.uuid ?? ""
-		}, ${
-			formsMigration.find(
-				(form) => form.old.event_id === eventMigration.old.id
-			)?.new.uuid ?? ""
-		});`;
+		}, ${null});`;
 	}
 
 	return eventsMigration;
