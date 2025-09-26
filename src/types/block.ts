@@ -15,7 +15,7 @@ export const BlockV2 = z.object({
 export const BlockV2Array = z.array(BlockV2);
 
 export type BlockV2 = z.infer<typeof BlockV2>;
-export type BlockV2array = z.infer<typeof BlockV2Array>;
+export type BlockV2Array = z.infer<typeof BlockV2Array>;
 
 export const BlockV3 = z.object({
 	uuid: z.uuidv4(),

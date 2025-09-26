@@ -14,7 +14,7 @@ export const FormDefinitionV2 = z.object({
 export const FormDefinitionV2Array = z.array(FormDefinitionV2);
 
 export type FormDefinitionV2 = z.infer<typeof FormDefinitionV2>;
-export type FormDefinitionV2array = z.infer<typeof FormDefinitionV2Array>;
+export type FormDefinitionV2Array = z.infer<typeof FormDefinitionV2Array>;
 
 export const FormDefinitionV3 = z.object({
 	uuid: z.uuidv4(),

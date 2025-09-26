@@ -6,9 +6,10 @@ export const AttributeV2 = z.object({
 	slug: z.string().nullable(),
 	event_id: z.number(),
 	show_in_list: z.boolean(),
-	options: z.json().nullable(),
+	options: z.array(z.string()).nullable(),
 	type: z.enum([
 		"text",
+		"textarea",
 		"number",
 		"file",
 		"select",
@@ -16,6 +17,7 @@ export const AttributeV2 = z.object({
 		"date",
 		"time",
 		"datetime",
+		"multiselect",
 		"email",
 		"tel",
 		"color",
@@ -29,7 +31,7 @@ export const AttributeV2 = z.object({
 export const AttributeV2Array = z.array(AttributeV2);
 
 export type AttributeV2 = z.infer<typeof AttributeV2>;
-export type AttributeV2array = z.infer<typeof AttributeV2Array>;
+export type AttributeV2Array = z.infer<typeof AttributeV2Array>;
 
 export const AttributeV3 = z.object({
 	uuid: z.uuidv4(),

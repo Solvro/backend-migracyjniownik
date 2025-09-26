@@ -2,7 +2,7 @@ import z from "zod";
 
 export const AuthAccessTokenV2 = z.object({
 	id: z.number(),
-	tokenable_id: z.string(),
+	tokenable_id: z.number(),
 	type: z.string(),
 	name: z.string().nullable(),
 	hash: z.string(),
@@ -16,7 +16,7 @@ export const AuthAccessTokenV2 = z.object({
 export const AuthAccessTokenV2Array = z.array(AuthAccessTokenV2);
 
 export type AuthAccessTokenV2 = z.infer<typeof AuthAccessTokenV2>;
-export type AuthAccessTokenV2array = z.infer<typeof AuthAccessTokenV2Array>;
+export type AuthAccessTokenV2Array = z.infer<typeof AuthAccessTokenV2Array>;
 
 export const AuthAccessTokenV3 = z.object({
 	uuid: z.uuidv4(),
@@ -26,9 +26,9 @@ export const AuthAccessTokenV3 = z.object({
 	hash: z.string(),
 	abilities: z.string(),
 	createdAt: z.date(),
-	updatedAt: z.date(),
-	lastUsedAt: z.date(),
-	expiresAt: z.date(),
+	updatedAt: z.date().nullable(),
+	lastUsedAt: z.date().nullable(),
+	expiresAt: z.date().nullable(),
 });
 
 export const AuthAccessTokenV3Array = z.array(AuthAccessTokenV3);

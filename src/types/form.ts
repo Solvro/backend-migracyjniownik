@@ -17,7 +17,7 @@ export const FormV2 = z.object({
 export const FormV2Array = z.array(FormV2);
 
 export type FormV2 = z.infer<typeof FormV2>;
-export type FormV2array = z.infer<typeof FormV2Array>;
+export type FormV2Array = z.infer<typeof FormV2Array>;
 
 export const FormV3 = z.object({
 	uuid: z.uuidv4(),

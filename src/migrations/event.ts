@@ -11,7 +11,7 @@ export const migrateEvents = async (
 ) => {
 	const events = EventV2Array.parse(fromDB);
 
-	const eventsMigration: EventMigration[] = events.map((event) => {
+	const eventsMigration: EventMigration[] = events.map(event => {
 		const newEvent: EventV3 = {
 			uuid: uuidv4(),
 			name: event.name,
@@ -31,8 +31,8 @@ export const migrateEvents = async (
 			contactEmail: event.contact_email,
 			slug: event.slug,
 			isPrivate: false,
-			organizerUuid: uuidv4(),
-			registerFormUuid: uuidv4(),
+			organizerUuid: null,
+			registerFormUuid: null,
 		};
 
 		return {
@@ -70,10 +70,12 @@ export const migrateEvents = async (
 			eventMigration.new.contactEmail
 		}, ${eventMigration.new.slug}, ${eventMigration.new.isPrivate}, ${
 			adminsMigration.find(
-				(admin) => admin.old.id === eventMigration.old.organizer_id
+				admin => admin.old.id === eventMigration.old.organizer_id
 			)?.new.uuid ?? ""
 		}, ${null});`;
 	}
+
+	console.log("Migrated events");
 
 	return eventsMigration;
 };

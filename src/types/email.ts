@@ -5,7 +5,13 @@ export const EmailV2 = z.object({
 	event_id: z.number().nullable(),
 	name: z.string(),
 	content: z.string(),
-	trigger: z.string(),
+	trigger: z.enum([
+		"participant_registered",
+		"participant_deleted",
+		"form_filled",
+		"attribute_changed",
+		"manual",
+	]),
 	trigger_value: z.string().nullable(),
 	created_at: z.date(),
 	updated_at: z.date().nullable(),
@@ -16,7 +22,7 @@ export const EmailV2 = z.object({
 export const EmailV2Array = z.array(EmailV2);
 
 export type EmailV2 = z.infer<typeof EmailV2>;
-export type EmailV2array = z.infer<typeof EmailV2Array>;
+export type EmailV2Array = z.infer<typeof EmailV2Array>;
 
 export const EmailV3 = z.object({
 	uuid: z.uuidv4(),
@@ -31,10 +37,10 @@ export const EmailV3 = z.object({
 	]),
 	createdAt: z.date(),
 	updatedAt: z.date(),
-	triggerValue: z.string(),
-	triggerValue2: z.string(),
-	eventUuid: z.uuidv4(),
-	formUuid: z.uuidv4(),
+	triggerValue: z.string().nullable(),
+	triggerValue2: z.string().nullable(),
+	eventUuid: z.uuidv4().nullable(),
+	formUuid: z.uuidv4().nullable(),
 });
 
 export const EmailV3Array = z.array(EmailV3);

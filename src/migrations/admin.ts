@@ -8,7 +8,7 @@ export const migrateAdmins = async (
 ) => {
 	const admins = AdminV2Array.parse(fromDB);
 
-	const adminsMigration: AdminMigration[] = admins.map((admin) => {
+	const adminsMigration: AdminMigration[] = admins.map(admin => {
 		const newAdmin: AdminV3 = {
 			uuid: uuidv4(),
 			firstName: admin.first_name,
@@ -28,8 +28,20 @@ export const migrateAdmins = async (
 	});
 
 	for (const adminMigration of adminsMigration) {
-		await sql_v3`INSERT INTO "Admins" (uuid, "firstName", "lastName", "password", "email", "type", "active", "createdAt", "updatedAt") VALUES (${adminMigration.new.uuid}, ${adminMigration.new.firstName}, ${adminMigration.new.lastName}, ${adminMigration.new.password}, ${adminMigration.new.email}, ${adminMigration.new.type}, ${adminMigration.new.active}, ${adminMigration.new.createdAt}, ${adminMigration.new.updatedAt});`;
+		await sql_v3`INSERT INTO "Admins" (uuid, "firstName", "lastName", "password", "email", "type", "active", "createdAt", "updatedAt") VALUES (
+			${adminMigration.new.uuid},
+			${adminMigration.new.firstName},
+			${adminMigration.new.lastName},
+			${adminMigration.new.password},
+			${adminMigration.new.email},
+			${adminMigration.new.type},
+			${adminMigration.new.active},
+			${adminMigration.new.createdAt},
+			${adminMigration.new.updatedAt}
+		);`;
 	}
+
+	console.log("Migrated admins");
 
 	return adminsMigration;
 };

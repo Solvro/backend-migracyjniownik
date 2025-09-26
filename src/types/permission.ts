@@ -9,7 +9,7 @@ export const PermissionV2 = z.object({
 export const PermissionV2Array = z.array(PermissionV2);
 
 export type PermissionV2 = z.infer<typeof PermissionV2>;
-export type PermissionV2array = z.infer<typeof PermissionV2Array>;
+export type PermissionV2Array = z.infer<typeof PermissionV2Array>;
 
 export const PermissionV3 = z.object({
 	uuid: z.uuidv4(),

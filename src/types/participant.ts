@@ -12,7 +12,7 @@ export const ParticipantV2 = z.object({
 export const ParticipantV2Array = z.array(ParticipantV2);
 
 export type ParticipantV2 = z.infer<typeof ParticipantV2>;
-export type ParticipantV2array = z.infer<typeof ParticipantV2Array>;
+export type ParticipantV2Array = z.infer<typeof ParticipantV2Array>;
 
 export const ParticipantV3 = z.object({
 	uuid: z.uuidv4(),

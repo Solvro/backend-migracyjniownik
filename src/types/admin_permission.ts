@@ -5,14 +5,14 @@ export const AdminPermissionV2 = z.object({
 	event_id: z.number(),
 	permission_id: z.number(),
 	admin_id: z.number(),
-	created_at: z.date(),
+	created_at: z.date().nullable(),
 	updated_at: z.date().nullable(),
 });
 
 export const AdminPermissionV2Array = z.array(AdminPermissionV2);
 
 export type AdminPermissionV2 = z.infer<typeof AdminPermissionV2>;
-export type AdminPermissionV2array = z.infer<typeof AdminPermissionV2Array>;
+export type AdminPermissionV2Array = z.infer<typeof AdminPermissionV2Array>;
 
 export const AdminPermissionV3 = z.object({
 	uuid: z.uuidv4(),

@@ -12,7 +12,7 @@ export const ParticipantAttributeV2 = z.object({
 export const ParticipantAttributeV2Array = z.array(ParticipantAttributeV2);
 
 export type ParticipantAttributeV2 = z.infer<typeof ParticipantAttributeV2>;
-export type ParticipantAttributeV2array = z.infer<
+export type ParticipantAttributeV2Array = z.infer<
 	typeof ParticipantAttributeV2Array
 >;
 

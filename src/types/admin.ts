@@ -15,7 +15,7 @@ export const AdminV2 = z.object({
 export const AdminV2Array = z.array(AdminV2);
 
 export type AdminV2 = z.infer<typeof AdminV2>;
-export type AdminV2array = z.infer<typeof AdminV2Array>;
+export type AdminV2Array = z.infer<typeof AdminV2Array>;
 
 export const AdminV3 = z.object({
 	uuid: z.uuidv4(),

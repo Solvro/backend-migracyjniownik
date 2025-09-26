@@ -4,7 +4,7 @@ export const ParticipantEmailV2 = z.object({
 	id: z.number(),
 	participant_id: z.number().nullable(),
 	email_id: z.number().nullable(),
-	send_at: z.date().nullable(),
+	send_at: z.date(),
 	send_by: z.string().nullable(),
 	status: z.enum(["pending", "sent", "failed"]),
 	created_at: z.date(),
@@ -14,7 +14,7 @@ export const ParticipantEmailV2 = z.object({
 export const ParticipantEmailV2Array = z.array(ParticipantEmailV2);
 
 export type ParticipantEmailV2 = z.infer<typeof ParticipantEmailV2>;
-export type ParticipantEmailV2array = z.infer<typeof ParticipantEmailV2Array>;
+export type ParticipantEmailV2Array = z.infer<typeof ParticipantEmailV2Array>;
 
 export const ParticipantEmailV3 = z.object({
 	uuid: z.uuidv4(),
